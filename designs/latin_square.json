@@ -1,0 +1,26 @@
+{
+	"schema_metadata": {
+		"version": "0.1.0",
+		"studyDbId": "<studyDbId>",
+		"trialDbId": "<trialDbId>",
+		"locationDbId": "<locationDbId>",
+		"active": true,
+		"date_created": "<yyyymmdd>",
+		"design_user": "userDbId",
+	},
+	"design_parameters": {
+		"design_plan": "latin_square", // from experimental_design table in db
+		"design_description": "<text about a latin square design>",
+		"num_replications": "<num_replications>" // integer
+	},
+	"design": {
+		"rows": [
+			{
+				"row_id"
+			},
+			{
+				"row_id"
+			}
+		]
+	}
+}

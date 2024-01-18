@@ -1,0 +1,13 @@
+{
+	"schema_metadata": {
+		"version": "0.1.0",
+		"studyDbId": "<studyDbId>",
+		"trialDbId": "<trialDbId>",
+		"locationDbId": "<locationDbId>",
+		"active": true,
+		"date_created": "<yyyymmdd>",
+		"design_user": "userDbId",
+	},
+	"design_parameters": {},
+	"design": {}
+}

@@ -1,0 +1,37 @@
+{
+	"schema_metadata": {
+		"version": "0.1.0",
+		"studyDbId": "<studyDbId>",
+		"trialDbId": "<trialDbId>",
+		"locationDbId": "<locationDbId>",
+		"active": true,
+		"date_created": "<yyyymmdd>",
+		"design_user": "userDbId",
+	},
+	"design_parameters": {
+		"design_plan": "demonstration_strip", // from experimental_design table in db
+		"design_description": "This is the simplest experimental design, consisting of of a total of [2, 3, ... , n] singular experimental treatments. Demonstration strips are always un-replicated thus there are no more than 1 plot of a given treatment represented in the trial.",
+		"num_replications": 1, // demonstration strips always only have one replication
+		"num_plots": 3, // integer for the total number of plots associated with this trial
+		"treatments": ["<treatmentDbId>", "<treatmentDbId>", "<treatmentDbId>"], // for demonstration plots this is a list of treatmentDbIds of length <num_plots>.
+	},
+	"design": {
+		"plots": [ // an array of plot objects of length
+			{
+				"plotDbId": "<plotDbId>", // plotDbId in Postgres, unique puid for database
+				"treatmentDbId": "<treatmentDbId>", // treatmentDbId, unique puid for the type of treatment
+				"germplasmDbId": ["<germplasmDbId"] // list of all germplasmDbId's associated with this plot
+			},
+			{
+				"plotDbId": "<plotDbId>",
+				"treatmentDbId": "<treatmentDbId>", 
+				"germplasmDbId": ["<germplasmDbId"]
+			},
+			{
+				"plotDbId": "<plotDbId>",
+				"treatmentDbId": "<treatmentDbId>",
+				"germplasmDbId": ["<germplasmDbId"]
+			}
+		]
+	}
+}
