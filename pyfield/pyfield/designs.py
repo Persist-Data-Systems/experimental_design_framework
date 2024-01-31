@@ -57,32 +57,53 @@ class DemonstrationStrip(BaseDesign):
 
 
 if __name__ == '__main__':
-    base = BaseDesign()
-    print(base.metadata)
+    # base = BaseDesign()
+    # print(base.metadata)
 
 
-    plot_ids = ['p1234', 'p2345', 'p345']
-    treatment_ids = ['t1', 't34', 't56']
-    germplasm_ids = ['A', 'B', 'C']
-    germplasm_ids = [['A'], ['B'], ['C']]
+    # plot_ids = ['p1234', 'p2345', 'p345']
+    # treatment_ids = ['t1', 't34', 't56']
+    # germplasm_ids = ['A', 'B', 'C']
+    # germplasm_ids = [['A'], ['B'], ['A', 'B']]
 
-    dstrip = DemonstrationStrip(
-        metadata={
-            "studyDbId": "<studyDbId>",
-		    "trialDbId": "<trialDbId>",
-		    "locationDbId": "<locationDbId>",
-		    "active": True,
-		    "date_created": "<yyyymmdd>",
-		    "design_user": "userDbId"
-        },
-        treatments=['lo_N', 'med_N', 'hi_N'], 
-        treatmentDbIds=treatment_ids,
-        plotDbIds=plot_ids,
-        germplasmDbIds=germplasm_ids
-    )
-    print(dstrip.metadata)
-    print(dstrip.design_parameters)
-    print(dstrip.design)
-    dstrip.build()
-    print(len(germplasm_ids))
-    print(dstrip.design)
+    # dstrip = DemonstrationStrip(
+    #     metadata={
+    #         "studyDbId": "<studyDbId>",
+	# 	    "trialDbId": "<trialDbId>",
+	# 	    "locationDbId": "<locationDbId>",
+	# 	    "active": True,
+	# 	    "date_created": "<yyyymmdd>",
+	# 	    "design_user": "userDbId"
+    #     },
+    #     treatments=['lo_N', 'med_N', 'hi_N'], 
+    #     treatmentDbIds=treatment_ids,
+    #     plotDbIds=plot_ids,
+    #     germplasmDbIds=germplasm_ids
+    # )
+    # print(dstrip.metadata)
+    # print(dstrip.design_parameters)
+    # print(dstrip.design)
+    # dstrip.build()
+    # print(len(germplasm_ids))
+    # print(dstrip.design)
+
+    main_plot = MainPlot('xyz', 'trt456', ['A'])
+    print(main_plot.germplasmDbId)
+    print(main_plot.plotDbId)
+    print(main_plot.treatmentDbId)
+    print(main_plot.out())
+
+    sub_plot = SubPlot('abc', 'trt456', ['A', 'B'], main_plot)
+    print(sub_plot.plotDbId)
+    print(sub_plot.parent_plotDbId)
+    print(sub_plot.treatmentDbId)
+    print(sub_plot.germplasmDbId)
+    print(sub_plot.out())
+
+
+    subsub_plot = SubSubPlot('def', 'trt456', ['A', 'B'], sub_plot)
+    print(subsub_plot.plotDbId)
+    print(subsub_plot.parent_plotDbId)
+    print(subsub_plot.treatmentDbId)
+    print(subsub_plot.germplasmDbId)
+    print(subsub_plot.out())
